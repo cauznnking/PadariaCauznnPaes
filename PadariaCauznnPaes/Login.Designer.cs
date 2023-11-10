@@ -90,6 +90,7 @@
             this.BtnEntrar.TabIndex = 5;
             this.BtnEntrar.Text = "ENTRAR";
             this.BtnEntrar.UseVisualStyleBackColor = true;
+            this.BtnEntrar.Click += new System.EventHandler(this.BtnEntrar_Click);
             // 
             // Login
             // 
