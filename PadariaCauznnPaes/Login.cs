@@ -40,7 +40,7 @@ namespace PadariaCauznnPaes
                MessageBox.Show(usuario.NomeCompleto);
 
                 //PROXIMO PASSSO: ABRIR A JANELA MENU:
-                MenuPrincipal janela = new MenuPrincipal();
+                MenuPrincipal janela = new MenuPrincipal(usuario);
 
                 //esconder janela atual
                 Hide();
@@ -49,7 +49,7 @@ namespace PadariaCauznnPaes
                 janela.ShowDialog();
 
                 //mostrar o login quando o menu fechar
-                Show();
+                this.Show();
                 
             }
             else

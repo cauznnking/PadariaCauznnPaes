@@ -12,9 +12,35 @@ namespace PadariaCauznnPaes
 {
     public partial class MenuPrincipal : Form
     {
-        public MenuPrincipal()
+        //objeitos globais 
+        Classes.Usuario usuario = new Classes.Usuario();
+
+        public MenuPrincipal(Classes.Usuario usuario)
         {
             InitializeComponent();
+            //Atributo o usuario local no global 
+            this.usuario = usuario;
+
+            //mudar a label de apresentação
+            LblApresentacao.Text = "Ola, " + usuario.NomeCompleto;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void BtnProdutos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnUsuario_Click(object sender, EventArgs e)
+        {
+            //isntanciar a janela
+            Views.GerenciamentoUsuarios janela = new Views.GerenciamentoUsuarios();
+            janela.Show();
+
         }
     }
 }

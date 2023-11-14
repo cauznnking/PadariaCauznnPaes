@@ -82,6 +82,7 @@
             this.BtnProdutos.TabIndex = 3;
             this.BtnProdutos.Text = "PRODUTOS";
             this.BtnProdutos.UseVisualStyleBackColor = false;
+            this.BtnProdutos.Click += new System.EventHandler(this.BtnProdutos_Click);
             // 
             // BtnCaixa
             // 
@@ -104,6 +105,7 @@
             this.BtnUsuario.TabIndex = 5;
             this.BtnUsuario.Text = "USUÁRIOS";
             this.BtnUsuario.UseVisualStyleBackColor = false;
+            this.BtnUsuario.Click += new System.EventHandler(this.BtnUsuario_Click);
             // 
             // pictureBox1
             // 
@@ -114,6 +116,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // MenuPrincipal
             // 
@@ -129,6 +132,7 @@
             this.Controls.Add(this.LblApresentacao);
             this.Controls.Add(this.LblTituloMenu);
             this.Name = "MenuPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuPrincipal";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
