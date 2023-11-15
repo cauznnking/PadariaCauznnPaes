@@ -85,7 +85,68 @@ namespace PadariaCauznnPaes.Views
             Classes.Usuario usuario = new Classes.Usuario();
             usuario.Id = idSelecionado;
             //apagar:
+            var r = MessageBox.Show("Tem certeza que desejas apagar o usuarios?", "ATENÇÃO",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (r == DialogResult.Yes)
+            { 
+                //apagar
+                if (usuario.Apagar() == true)
+                {
+                    MessageBox.Show("USUARIO APAGADO ", "SUCESSO",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //atualizar o dgv:
+                    DgvUsuarios.DataSource = usuario.ListarTudo();
+                    //limpar os campos de edição
+                    TxbEditEmail.Clear();
+                    TxbEditNomeCompleto.Clear();
+                    TxbNovaSenha.Clear();
+                    LblDoApagar.Text = "selecione um usuario para apagar";
+                    //desabilitar o gbrs
+                    GrbApagar.Enabled = false;
+                    GrbEditar.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("FALHA AO APAGAR", "ERROR",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            Classes.Usuario usuario = new Classes.Usuario();
+            
+            
+            // obter os valores dos Txbs
+            usuario.Id = idSelecionado;
+            usuario.NomeCompleto = TxbEditNomeCompleto.Text;
+            usuario.Email = TxbEditEmail.Text;
+            usuario.Senha = TxbNovaSenha.Text;
+
+            //editar
+            if (usuario.Modificar() == true)
+            {
+                MessageBox.Show("USUARIO MODIFICADO ", "SUCESSO",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //atualizar o dgv:
+                DgvUsuarios.DataSource = usuario.ListarTudo();
+                //limpar os campos de edição
+                TxbEditEmail.Clear();
+                TxbEditNomeCompleto.Clear();
+                TxbNovaSenha.Clear();
+                LblDoApagar.Text = "selecione um usuario para apagar";
+                //desabilitar o gbrs
+                GrbApagar.Enabled = false;
+                GrbEditar.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("FALHA AO MODIFICAR O USUARIO ", "FALHA",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }
