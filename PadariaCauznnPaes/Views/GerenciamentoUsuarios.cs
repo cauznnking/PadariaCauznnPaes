@@ -149,5 +149,15 @@ namespace PadariaCauznnPaes.Views
             }
 
         }
+
+        private void DgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void TxbNomeCompleto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

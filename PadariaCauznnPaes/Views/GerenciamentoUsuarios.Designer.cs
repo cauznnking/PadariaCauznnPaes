@@ -69,6 +69,7 @@
             this.DgvUsuarios.Size = new System.Drawing.Size(421, 221);
             this.DgvUsuarios.TabIndex = 0;
             this.DgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvUsuarios_CellClick);
+            this.DgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvUsuarios_CellContentClick);
             // 
             // GrbCadastro
             // 
@@ -141,6 +142,7 @@
             this.TxbNomeCompleto.Name = "TxbNomeCompleto";
             this.TxbNomeCompleto.Size = new System.Drawing.Size(100, 22);
             this.TxbNomeCompleto.TabIndex = 1;
+            this.TxbNomeCompleto.TextChanged += new System.EventHandler(this.TxbNomeCompleto_TextChanged);
             // 
             // LblNomeCompleto
             // 
@@ -186,9 +188,9 @@
             this.LblDoApagar.ForeColor = System.Drawing.Color.White;
             this.LblDoApagar.Location = new System.Drawing.Point(6, 30);
             this.LblDoApagar.Name = "LblDoApagar";
-            this.LblDoApagar.Size = new System.Drawing.Size(259, 20);
+            this.LblDoApagar.Size = new System.Drawing.Size(269, 20);
             this.LblDoApagar.TabIndex = 0;
-            this.LblDoApagar.Text = "Selecione o usuario para pagar";
+            this.LblDoApagar.Text = "Selecione o usuario para apagar";
             // 
             // GrbEditar
             // 
