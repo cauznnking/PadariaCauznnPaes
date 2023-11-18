@@ -33,7 +33,7 @@ namespace PadariaCauznnPaes
         private void BtnProdutos_Click(object sender, EventArgs e)
             {
                 //isntanciar a janela
-                Views.GerenciamentoDeProduto janela = new Views.GerenciamentoDeProduto();
+                Views.GerenciamentoDeProduto janela = new Views.GerenciamentoDeProduto(usuario);
                 janela.Show();
             }
 
