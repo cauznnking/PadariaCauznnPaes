@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PadariaCauznnPaes.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,6 +44,12 @@ namespace PadariaCauznnPaes
             Views.GerenciamentoUsuarios janela = new Views.GerenciamentoUsuarios();
             janela.Show();
 
+        }
+
+        private void BtnComanda_Click(object sender, EventArgs e)
+        {
+            Views.Comandas janela = new Views.Comandas(usuario);
+            janela.Show();
         }
     }
 }
