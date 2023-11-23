@@ -62,6 +62,7 @@
             this.DgvUsuarios.AllowUserToResizeColumns = false;
             this.DgvUsuarios.AllowUserToResizeRows = false;
             this.DgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvUsuarios.BackgroundColor = System.Drawing.Color.DarkGoldenrod;
             this.DgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvUsuarios.Location = new System.Drawing.Point(21, 69);
             this.DgvUsuarios.Name = "DgvUsuarios";
@@ -290,7 +291,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.ClientSize = new System.Drawing.Size(462, 566);
             this.Controls.Add(this.LblTitulo);
             this.Controls.Add(this.GrbEditar);

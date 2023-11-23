@@ -103,6 +103,12 @@
     <Compile Include="Views\Comandas.Designer.cs">
       <DependentUpon>Comandas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\GerenciamentoCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GerenciamentoCaixa.Designer.cs">
+      <DependentUpon>GerenciamentoCaixa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\GerenciamentoDeProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Comandas.resx">
       <DependentUpon>Comandas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GerenciamentoCaixa.resx">
+      <DependentUpon>GerenciamentoCaixa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\GerenciamentoDeProduto.resx">
       <DependentUpon>GerenciamentoDeProduto.cs</DependentUpon>

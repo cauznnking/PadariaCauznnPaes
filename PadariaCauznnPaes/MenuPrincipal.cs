@@ -51,5 +51,11 @@ namespace PadariaCauznnPaes
             Views.Comandas janela = new Views.Comandas(usuario);
             janela.Show();
         }
+
+        private void BtnCaixa_Click(object sender, EventArgs e)
+        {
+            Views.GerenciamentoCaixa janela = new Views.GerenciamentoCaixa(usuario);
+            janela.Show();
+        }
     }
 }

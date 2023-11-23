@@ -29,7 +29,7 @@ namespace PadariaCauznnPaes.Views
 
         private void DgvComanda_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
             int LinhaSelecionada = DgvComanda.CurrentCell.RowIndex;
             var linha = DgvComanda.Rows[LinhaSelecionada];
 
@@ -39,39 +39,74 @@ namespace PadariaCauznnPaes.Views
 
         }
 
+        private void LimparTudo()
+        {
+            //  Limpa os cods
+            TxbProduto.Clear();
+            TxbProdutoLancar.Clear();
+            TxbComanda.Clear();
+            TxbQuantidade.Clear();
+
+            //  Resetar os grbs
+            GrbInformacoes.Enabled = true;
+            GrbLancamento.Enabled = false;
+        }
+
         private void BtnContinuar_Click(object sender, EventArgs e)
         {
-            GrbLancamento.Enabled = true;
-            GrbInformacoes.Enabled = false;
+            if (TxbComanda.Text != "" && TxbProduto.Text != "")
+            {
+                GrbLancamento.Enabled = true;
+                GrbInformacoes.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Verifique as informações digitadas!!",
+                    "ERROR!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BtnLancar_Click(object sender, EventArgs e)
         {
-            var r = MessageBox.Show("tem certeza que desejas lançar?? ", "AVISO!!",
-               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(r == DialogResult.Yes)
-            {
-                Classes.OrdemComanda ordem = new Classes.OrdemComanda();
-                //obter os valores dos campos
-                ordem.IdFicha = int.Parse(TxbComanda.Text);
-                ordem.IdProduto = int.Parse(TxbProduto.Text);
-                ordem.Quantidade = int.Parse(TxbQuantidade.Text);
-                ordem.IdResp = usuario.Id;
-                //efetuar o cadastro
-                if(ordem.NovoLancamento() == true)
-                {
-                    MessageBox.Show("Lançamento efetudado! ", "SUCESSO!",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Lançamento Nao Efetuado! ", "Errorr!",
-                      MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
 
-                GrbLancamento.Enabled = false;
-                GrbInformacoes.Enabled = true;
+            if (TxbQuantidade.Text != "")
+            {
+                var r = MessageBox.Show("tem certeza que desejas lançar?? ", "AVISO!!",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r == DialogResult.Yes)
+                {
+                    Classes.OrdemComanda ordem = new Classes.OrdemComanda();
+                    //obter os valores dos campos
+                    ordem.IdFicha = int.Parse(TxbComanda.Text);
+                    ordem.IdProduto = int.Parse(TxbProduto.Text);
+                    ordem.Quantidade = int.Parse(TxbQuantidade.Text);
+                    ordem.IdResp = usuario.Id;
+                    //efetuar o cadastro
+                    if (ordem.NovoLancamento() == true)
+                    {
+                        MessageBox.Show("Lançamento efetudado! ", "SUCESSO!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimparTudo();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lançamento Nao Efetuado! ", "Errorr!",
+                          MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        LimparTudo();
+                    }
+
+                }
             }
+            else
+            {
+                MessageBox.Show("INFORME A QUANTIDADE ", "ERRORR!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            LimparTudo();
         }
     }
 }

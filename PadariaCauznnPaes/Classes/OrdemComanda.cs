@@ -2,6 +2,7 @@
 using MySqlConnector;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,59 @@ namespace PadariaCauznnPaes.Classes
         public DateTime DataAdlc { get; set; }
 
         public int Situacao { get; set; }
+
+
+        public bool EncerrarFicha()
+        {
+            string comando = "UPDATE ordem_comandas SET situacao = 0" +
+                "WHERE id_ficha = @id_ficha AND situacao = 1 ";
+
+            Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
+            MySqlConnection con = conexaoBD.ObterConexao();
+            MySqlCommand cmd = new MySqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("@id_ficha", IdFicha);
+            cmd.Prepare();
+            try
+            {
+                if (cmd.ExecuteNonQuery() == 0)
+                {
+                    conexaoBD.Desconectar(con);
+                    return false;
+                }
+                else
+                {
+                    conexaoBD.Desconectar(con);
+                    return true;
+                }
+            }
+            catch
+            {
+                conexaoBD.Desconectar(con);
+                return false;
+            }
+        }
+
+
+        public DataTable BuscarFicha()
+        {
+            string comando = "SELECT *" +
+                " FROM view_fichas WHERE ficha = @ficha";
+
+            Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
+            MySqlConnection con = conexaoBD.ObterConexao();
+            MySqlCommand cmd = new MySqlCommand(comando, con);
+            // Substituir os 'coringas' por valores:
+            cmd.Parameters.AddWithValue("@ficha", IdFicha);
+            cmd.Prepare();
+            // Declarar tabela que irá receber o resultado:
+            DataTable tabela = new DataTable();
+            // Preencher a tabela com o resultado da consulta
+            tabela.Load(cmd.ExecuteReader());
+            conexaoBD.Desconectar(con);
+            return tabela;
+        }
+
 
         public bool NovoLancamento()
         {
